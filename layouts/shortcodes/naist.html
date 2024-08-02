@@ -1,0 +1,103 @@
+<meta charset="UTF-8" />
+<div class="publications py-5">
+    <div class="container bg-light">
+        <div class="py-3 px-3 px-sm-0">
+            <!-- FontAwesomeのアイコンが他ページの方法だとここでは豆腐になるためiタグを使用 -->
+            <h3 class="text-dark text-center mb-4"><i class="fas fa-scroll"
+                    style="margin: 1rem 1rem 0 0"></i>Publications</h3>
+            <hr class="divider">
+
+            <form class="mb-3 pb-3">
+                <input type="hidden" name="output" value="json">
+                <input type="hidden" name="author" value="raula-k@is.naist.jp">
+                <input type="hidden" name="gyoseki_start" id="input_start">
+                <input type="hidden" name="gyoseki_end" id="input_end">
+                <input type="hidden" name="kubun" id="input_kubun">
+
+                <h5 class="font-weight-bold">検索</h5>
+                <div class="form-row align-items-center">
+                    <div class="col-auto">
+                        <label>期間 :</label>
+                    </div>
+                    <div class="col-auto">
+                        <select class="year_list" id="year_start">
+                        </select>
+                        <label for="year_start">年から</label>
+                    </div>
+                    <div class="col-auto">
+                        <select class="year_list" id="year_end">
+                        </select>
+                        <label for="year_end">年まで</label>
+                    </div>
+                </div>
+                <div class="form-row align-items-center">
+                    <div class="col-auto">
+                        <label for="category_select">カテゴリー :</label>
+                    </div>
+                    <div class="col-auto">
+                        <select id="category_select" style="margin-bottom: .5rem">
+                            <option value="" selected>指定なし</option>
+                            <option value="学術論文誌">学術論文誌</option>
+                            <option value="解説・総説">解説・総説</option>
+                            <option value="著書">著書</option>
+                            <option value="国際会議論文">国際会議論文</option>
+                            <option value="国内学会研究会・シンポジウム等">国内学会研究会・シンポジウム等</option>
+                            <option value="国内学会大会等">国内学会大会等</option>
+                            <option value="マスコミ報道">マスコミ報道</option>
+                            <option value="表彰・受賞">表彰・受賞</option>
+                            <option value="特許">特許</option>
+                            <option value="その他">その他</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-secondary" onclick="gyoseki_search()">検索する</button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- 業績リスト表示時のロード画面，リストの取得ができたらdisplay:none -->
+            <div id="loading">
+                <img class="text-center" src="assets/images/publication_load.gif" alt="loading...">
+            </div>
+
+            <!-- 業績リストがtableで表示されるエリア -->
+            <div id="search_result_area">
+                <div class="search_result_pager"></div>
+                <div id="search_result_list"></div>
+            </div>
+
+            <!-- 業績管理システムWebAPI用のjquery -->
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+            <script type="text/javascript" src="naist_api_util.js">
+
+            </script>
+
+            <script type="text/javascript">
+                $(function () {
+                    #initSelector();
+                    #setParam();
+                });
+
+                /* 業績リストのロード画面，業績リストエリアを非表示にしてloadingエリアを表示 */
+                $(function () {
+                    $('#search_result_area').css('display', 'none');
+                    $('#search_result_list').css('display', 'none');
+                    $('#loading').css('display', 'inline-table');
+                });
+
+                /* ロード終了したらloadingエリアを非表示にして業績リストエリアを表示 */
+                $(window).load(function () {
+                    $('#loading').delay(600).fadeOut(600);
+                    $('#search_result_area').css('display', 'inline-table');
+                    $('#search_result_list').css('display', 'inline-table');
+                });
+            </script>
+
+            <!-- NAIST研究業績管理システム WebAPI -->
+            <script type="text/javascript" src="//api-research.naist.jp/js/search"></script>
+        </div>
+    </div>
+</div>

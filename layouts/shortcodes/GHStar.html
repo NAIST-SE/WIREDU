@@ -1,0 +1,24 @@
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<ul class="GHStar">
+  {{ $url := .Get "url" }}
+  {{ range getJSON $url }}
+    {{ $p := . }}
+    <li>
+      <a href="{{ $p.webpage}}" target="_blank">{{$p.name}}</a>,
+     "<a href="{{ $p.thesislink}}" target="_blank"> {{$p.title}}</a>", 
+      {{$p.institute}}, ({{$p.graduatedate}})
+      Advisor: {{$p.advisor}}
+    </li>
+    {{ end }}
+</ul>
+
+</body>
+
+
+
