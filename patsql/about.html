@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>PATSQL: Efficient Synthesis of SQL Queries from Example Tables with Quick Inference of Projected Columns
+    </title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/idea.css">
+    <link rel="stylesheet" href="./css/custom.css">
+    <link rel="stylesheet" href="./css/about.css">
+
+</head>
+
+<body>
+    <div id="header_div">
+        <div id="header_item">
+            <div id="logo">
+                <a href="index.html" style="text-decoration: none; color: white;">
+                    <span>P<span style="font-size: smaller;">AT</span>SQL</span>
+                </a>
+            </div>
+            <div id="about_div">
+                <a href="about.html" style="text-decoration: none; color: white;">
+                    <span>About</span>
+                </a>
+                <a lang="en" href="about.html?lang=jpn"
+                    style="padding-left: 20px; text-decoration: none; color: lightgray;">
+                    <span>
+                        <font style="font-size: smaller;">日本語</font>
+                    </span>
+                </a>
+                <a lang="jpn" href="about.html?lang=en"
+                    style="padding-left: 20px; text-decoration: none; color: lightgray;">
+                    <span>
+                        <font style="font-size: smaller;">ENG</font>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="about">
+        <h1 lang="en">People</h1>
+        <h1 lang="jpn">チーム</h1>
+        <span>Main Contributers</span>
+        <ul lang="en">
+            <li>Keita Takenouchi <span style="font-size: smaller;">(NTT DATA)</span> </li>
+            <li>Takashi Ishio <span style="font-size: smaller;">(Nara Institute of Science and Technology)</span></li>
+            <li>Joji Okada <span style="font-size: smaller;">(NTT DATA)</span></li>
+            <li>Yuji Sakata <span style="font-size: smaller;">(NTT DATA)</span></li>
+        </ul>
+        <ul lang="jpn">
+            <li>竹之内 啓太 <span style="font-size: smaller;">(NTTデータ)</span> </li>
+            <li>石尾 隆 <span style="font-size: smaller;">(奈良先端科学技術大学院大学)</span></li>
+            <li>岡田 譲二 <span style="font-size: smaller;">(NTTデータ)</span></li>
+            <li>坂田 祐司 <span style="font-size: smaller;">(NTTデータ)</span></li>
+        </ul>
+        <span>Special Thanks</span>
+        <ul lang="en">
+            <li>Hirosato Hano <span style="font-size: smaller;">(NTT DATA INTELLILINK)</span></li>
+            <li>Biswajeet Rout <span style="font-size: smaller;">(NTT DATA INTELLILINK)</span></li>
+            <li>Sarang Khairnar <span style="font-size: smaller;">(NTT DATA INTELLILINK)</span></li>
+        </ul>
+        <ul lang="jpn">
+            <li>羽野 宇賢 <span style="font-size: smaller;">(NTTデータ先端技術)</span></li>
+            <li>ラウト ビスワジット <span style="font-size: smaller;">(NTTデータ先端技術)</span></li>
+            <li>サラング カイルナール <span style="font-size: smaller;">(NTTデータ先端技術)</span></li>
+        </ul>
+        <p lang="en">
+            <span>
+                We are interested in the practical application of program synthesis techniques, especially
+                programming-by-example techniques.
+            </span>
+            <span>
+                Welcome your feedbacks!
+            </span>
+        </p>
+        <p lang="jpn">
+            <span>
+                私たち NTT データと奈良先端科学技術大学院大学の研究チームでは、プログラム合成と呼ばれるプログラムを自動生成する技術の研究開発を行っています。
+                特に、programming by example と呼ばれる、入出力例からプログラムを自動生成する手法の実用化に興味があります。
+                皆様からのご意見、感想など、フィードバックをお待ちしています。
+            </span>
+        </p>
+
+        <h1 lang="en">Paper</h1>
+        <h1 lang="jpn">論文</h1>
+        <span>
+            "PATSQL: Efficient Synthesis of SQL Queries from Example Tables with Quick Inference of Projected
+            Columns" 
+        </span>
+        <a href="http://www.vldb.org/pvldb/vol14/p1937-takenouchi.pdf">(PVLDB)</a> 
+        <a href="https://arxiv.org/abs/2010.05807" target="_blank">(arXiv)</a>
+        <h1 lang="en">Source Code</h1>
+        <h1 lang="jpn">Source Code</h1>
+        <span lang="en">
+            <a href="https://github.com/NAIST-SE/PATSQL" target="_blank">Source code is available on GitHub.</a>
+        </span>
+        <span lang="jpn">
+            <a href="https://github.com/NAIST-SE/PATSQL" target="_blank">ソースコードは GitHub で公開しています。</a>
+        </span>
+        <h1 lang="en">License</h1>
+        <h1 lang="jpn">ライセンス</h1>
+        <span lang="en">
+            This web service version of <span>P<span style="font-size: smaller;">AT</span>SQL</span> can be used only for non-commercial purposes.
+            The internal synthesis engine is released under GPLv3.
+        </span>
+        <span lang="jpn">
+            このサイトで提供している Web サービス版 <span>P<span style="font-size: smaller;">AT</span>SQL</span> は非商用目的にのみ利用可能です。
+            内部で使用している SQL 合成エンジンは GPLv3 で公開しています。
+        </span>
+        <h1 lang="en">Contact us</h1>
+        <h1 lang="jpn">連絡先</h1>
+        <span>
+            Email: Keita.Takenouchi[at]nttdata.com
+        </span>
+    </div>
+    <script src="./lib/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="./js/multilang.js"></script>
+</body>
+
+</html>

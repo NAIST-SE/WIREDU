@@ -1,0 +1,151 @@
+<header class="navbar-affixed-top" data-spy="affix" data-offset-top="62">
+  <div class="navbar navbar-default yamm {{ if .Site.Params.dropdown_mouse_over }}mouseover{{ end }}" role="navigation" id="navbar">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand home" href="{{ "/" | relLangURL }}">
+          {{ if default false .Site.Params.disabled_logo }}
+            <h4>{{ .Site.Params.logo_text }}</h4>
+          {{ else }}
+            <img src="{{ .Site.Params.logo | relURL }}" alt="{{ .Title }} logo" class="hidden-xs hidden-sm logo" />
+            <img src="{{ .Site.Params.logo_small | relURL }}" alt="{{ .Title }} logo" class="visible-xs visible-sm logo" />
+          {{ end }}
+          <span class="sr-only">{{ .Title }} - {{ i18n "navHome" }}</span>
+        </a>
+      </div>
+      <!--/.navbar-header -->
+
+      <div class="navbar-collapse collapse" id="navigation">
+        <ul class="nav navbar-nav navbar-right">
+          {{ $current := . }}
+          {{ range .Site.Menus.main.ByWeight }}
+          {{ $topLevel := replace .URL "/" "" }}
+          {{ $active := "" }}
+          {{ if eq $current.RelPermalink .URL }}
+          {{ $active = "active" }}
+          {{ end }}
+          {{ if eq $current.Type $topLevel }}
+          {{ $active = "active" }}
+          {{ end }}
+          {{ if and (or (eq $current.RelPermalink .URL) (eq "term" $current.Kind)) (in (slice "page" "term") $current.Kind) }}
+          {{ range (split .URL "/") }}
+          {{ if eq "blog" . }}
+          {{ $active = "active" }}
+          {{ end }}
+          {{ end }}
+          {{ end }}
+          {{ if .HasChildren }}
+          <!-- Check if the first child marks a menu section identifier -->
+          {{ $hasSections := (hasPrefix (index .Children 0).Identifier "section.") }}
+          <li class="dropdown{{ if $hasSections }} use-yamm yamm-fw{{end}} {{ $active }}">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ .Name }} <span class="caret"></span></a>
+            {{ if $hasSections }}
+            <ul class="dropdown-menu">
+              <li>
+                <div class="yamm-content">
+                  <div class="row">
+                    {{ if ne .URL "" }}
+                    <div class="col-sm-6">
+                      <img src="{{ .URL }}" class="img-responsive hidden-xs" />
+                    </div>
+                    {{ end }}
+                    <div class="col-sm-3">
+                      {{ range .Children.ByWeight }}
+                      {{ $column := printf "%s" .Post }}
+                      {{ if eq $column "1" }}
+                      <h5>{{ .Name }}</h5>
+                      {{ if .HasChildren }}
+                      <ul>
+                        {{ range .Children.ByWeight }}
+                        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+                        {{- end }}
+                      </ul>
+                      {{ end }}
+                      {{ end }}
+                      {{ end }}
+                    </div>
+                    <div class="col-sm-3">
+                      {{ range .Children.ByWeight }}
+                      {{ $column := printf "%s" .Post }}
+                      {{ if eq $column "2" }}
+                      <h5>{{ .Name }}</code></h5>
+                      {{ if .HasChildren }}
+                      <ul>
+                        {{ range .Children.ByWeight }}
+                        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+                        {{ end }}
+                      </ul>
+                      {{ end }}
+                      {{ end }}
+                      {{ end }}
+                    </div>
+                    {{ if eq .URL "" }}
+                    <div class="col-sm-3">
+                      {{ range .Children }}
+                      {{ $column := printf "%s" .Post }}
+                      {{ if eq $column "3" }}
+                      <h5>{{ .Name }}</code></h5>
+                      {{ if .HasChildren }}
+                      <ul>
+                        {{ range .Children.ByWeight }}
+                        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+                        {{ end }}
+                      </ul>
+                      {{ end }}
+                      {{ end }}
+                      {{ end }}
+                    </div>
+                    <div class="col-sm-3">
+                      {{ range .Children }}
+                      {{ $column := printf "%s" .Post }}
+                      {{ if eq $column "4" }}
+                      <h5>{{ .Name }}</code></h5>
+                      {{ if .HasChildren }}
+                      <ul>
+                        {{ range .Children.ByWeight }}
+                        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+                        {{ end }}
+                      </ul>
+                      {{ end }}
+                      {{ end }}
+                      {{ end }}
+                    </div>
+                    {{ end }}
+                  </div>
+                </div>
+              </li>
+            </ul>
+            {{ else }}
+            <ul class="dropdown-menu">
+              {{ range .Children.ByWeight }}
+              <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+              {{ end }}
+            </ul>
+            {{ end }}
+          </li>
+          {{ else }}
+          <li class="dropdown {{ $active }}">
+            <a href="{{ .URL }}">{{ .Name }}</a>
+          </li>
+          {{ end }}
+          {{ end }}
+          <!-- Language switcher -->
+          <div class="language-switch-container">
+            <div class="language-switch">
+              <ul>
+                <li><a href="/jp/">日本語</a></li>
+                <li><a href="/en/">English</a></li>
+              </ul>
+            </div>
+          </div>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+      <div class="navbar-buttons">
+        <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation" aria-expanded="true">
+          <span class="sr-only">Toggle Navigation</span>
+          <i class="fas fa-align-justify"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>

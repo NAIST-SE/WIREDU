@@ -1,23 +1,41 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
 
-{{ define "main"}}
-{{ $isMultiLingual := and (ne .Site.Language.Weight 1) (and .Site.IsMultiLingual (not .Site.Params.Site.OnlyOneLang)) }}
-    <main>
-        <div class="circle-404">
-            <div class="root-404">
-                <div class="c404"></div>
-                <div class="titleroot-404">
-                    <div class="title-404">4</div>
-                    <div class="title-404">4</div>
+  <head>
+    {{ partial "headers.html" . }}
+    {{ partial "custom_headers.html" . }}
+  </head>
+
+  <body>
+
+    <div id="all">
+
+        {{ partial "nav.html" . }}
+
+        <div id="content">
+            <div class="container">
+
+                <div class="col-sm-6 col-sm-offset-3" id="error-page">
+
+                    <div class="box">
+
+                        <h3>{{ i18n "404Message" | markdownify }}</h3>
+                        <h4 class="text-muted">{{ i18n "404Error" | markdownify }}</h4>
+
+                        <p class="buttons"><a href="{{ "/" | relURL }}" class="btn btn-template-main"><i class="fas fa-home"></i> {{ i18n "404NavHome" | markdownify }}</a>
+                        </p>
+                    </div>
+
+
                 </div>
+                <!-- /.col-sm-6 -->
             </div>
-        <div class="back">
-            <div>{{ i18n "_404_sorry" }}</div>
-            <a href='{{ if $isMultiLingual }}
-                        {{ .Lang | relURL}}
-                    {{ else }}
-                        {{ "/" | relURL }}
-                    {{ end }}' class="efct-button">{{ i18n "_404_backToHome" }}</a>
+            <!-- /.container -->
         </div>
-        </div>
-    </main>
-{{ end }}
+        <!-- /#content -->
+
+        {{ partial "footer.html" . }}
+
+    </div>
+  </body>
+</html>

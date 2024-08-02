@@ -1,0 +1,177 @@
+#header {
+    text-align: center;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+}
+
+#input_tables {
+    background-color: white;
+    margin-top: 20px;
+}
+
+#center_area {
+    width: 430px;
+    height: 100%;
+    padding-left: 20px;
+}
+
+#query_area {
+    margin: auto 10px 10px 10px;
+    position: relative;
+}
+
+#copy-button-area {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+#output-query {
+    border-color: silver;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    /* same as button */
+}
+
+#delete-itbl-btn {
+    visibility: collapse;
+}
+
+.message {
+    font-size: 16px;
+    font-weight: bold;
+    background-color: gainsboro;
+    padding: 3px;
+}
+
+.output-title-bar {
+    padding: 5px 20px;
+    background-color: #8F001E;
+}
+
+.input-title-bar {
+    padding: 5px 20px;
+    background-color: #22504A;
+}
+
+.table {
+    border: 1px solid darkgray;
+    box-shadow: 0 10px 6px -6px #777;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 10ex;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -5ex;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.myinput {
+    width: 120px;
+    height: 22px;
+    font-size: 16px;
+    text-align: center;
+}
+
+button {
+    display: inline-block;
+    padding: 0.3em 1em;
+    color: black;
+    border: none;
+    border-radius: 3px;
+    /* same as output-query */
+    transition: .2s;
+    background-color: white;
+}
+
+.copy-button {
+    border: 1px solid silver;
+    color: gray;
+}
+
+button:hover {
+    background: lightgreen;
+    color: white;
+}
+
+select {
+    width: 90px;
+    height: 28px;
+    font-size: 14px;
+}
+
+body {
+    font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+    margin: 0;
+}
+
+#header_div {
+    height: 55px;
+    background-color: #222;
+    color: white;
+    min-width: 1100px;
+}
+
+#logo {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 8px 0 0 20px;
+    text-decoration: none;
+}
+
+#about_div {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+    padding: 14px 20px 0 0;
+}
+
+#header_item {
+    width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+#lead {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

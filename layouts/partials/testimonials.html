@@ -1,0 +1,47 @@
+{{ $lang := .Site.Language.Lang }}
+{{ if isset .Site.Params "testimonials" }}
+{{ if .Site.Params.testimonials.enable }}
+{{ $testimonials := index .Site.Data $lang "testimonials" }}
+{{ if gt (len $testimonials) 0 }}
+
+<section class="bar background-pentagon no-mb">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading text-center">
+                    <h2>{{ .Site.Params.testimonials.title }}</h2>
+                </div>
+
+                <p class="lead">
+                    {{ .Site.Params.testimonials.subtitle | markdownify }}
+                </p>
+
+                <div class="testimonials-container">
+                    {{ range $testimonials }}
+                    <div class="card">
+                        <div class="img-wrapper">
+                            <img class="card-img-top" src="{{ .avatar | relURL }}" alt="{{ .name }}">
+                            <p>Debug: {{ .avatar | relURL }}</p> <!-- Debug Information -->
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ .name }}</h5>
+                            <p class="card-text">{{ .position }}</p>
+                            <p class="card-text">{{ .text | markdownify }}</p>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{ else }}
+<p>Debug: No Testimonials Data Found</p>
+{{ end }}
+{{ else }}
+<p>Debug: Testimonials Data Not Enabled</p>
+{{ end }}
+{{ else }}
+<p>Debug: Testimonials Params Not Set</p>
+{{ end }}
