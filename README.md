@@ -1,5 +1,4 @@
-# Raula Website
+# International WIREDU Workshop
 
-This is my academic and research website.
+This is the base for the workshop
 
-I am testing the new PR checking tool for JS
