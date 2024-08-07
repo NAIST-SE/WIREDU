@@ -1,22 +1,29 @@
-{{ if isset .Site.Params.widgets "search" }}
-{{ if .Site.Params.widgets.search }}
-<div class="panel panel-default sidebar-menu">
-
-    <div class="panel-heading">
-      <h3 class="panel-title">{{ i18n "searchTitle" }}</h3>
-    </div>
-
-    <div class="panel-body">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" role="search">
-            <div class="input-group">
-                <input type="search" name="q" class="form-control" placeholder="{{ i18n "searchTitle" }}">
-                <input type="hidden" name="sitesearch" value="{{ "/" | absURL }}">
-                <span class="input-group-btn">
-                    <button type="submit" class="btn btn-template-main"><i class="fas fa-search"></i></button>
-                </span>
-            </div>
-        </form>
-    </div>
-</div>
+{{ $mode_custom := .Site.Params.Site.Mode }}
+{{ $postsCount := len .Site.RegularPages }}
+{{ $arrPosts := slice }}
+{{ $theEnd := i18n "search_theEnd" }}
+{{ $nothing := i18n "search_nothing" }}
+{{ $found := i18n "search_found" }}
+{{ $result := i18n "search_result" }}
+{{ $results := i18n "search_results" }}
+{{ $enableMermaid := .Params.mermaid }}
+{{ range .Site.RegularPages }}
+    {{ $thePost := dict "title" .Title "pubDate" (.PublishDate.Format "2006-01-02") "plain" .Plain "link" .Permalink }}
+    {{ $arrPosts = $arrPosts | append $thePost }}
 {{ end }}
-{{ end }}
+
+<script type="text/javascript">
+    var mode_custom = {{ $mode_custom }};
+    var postsCount = {{ $postsCount }};
+    var arrPosts = {{ $arrPosts }};
+    var search_theEnd = {{ $theEnd }};
+    var search_nothing = {{ $nothing }};
+    var search_found = {{ $found }};
+    var search_result = {{ $result }};
+    var search_results = {{ $results }};
+    var enable_mermaid = {{ $enableMermaid }}
+</script>
+
+
+
+

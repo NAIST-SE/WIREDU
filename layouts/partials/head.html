@@ -8,6 +8,9 @@
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     {{ template "_internal/opengraph.html" . }}
     {{ template "_internal/twitter_cards.html" . }}
+    {{ if not (in (string .Site.BaseURL) "localhost") }}
+        {{ template "_internal/google_analytics_async.html" . }}
+    {{ end }}
 
     <link rel="stylesheet" href='/css/style.css' />
     <link rel="stylesheet" href='/css/search.css' />
