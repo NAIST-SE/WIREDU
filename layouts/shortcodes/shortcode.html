@@ -1,0 +1,10 @@
+<ul>
+  {{ $urlPre := "search?author=raula-k@is.naist.jp" }}
+  {{ $gistJ := getJSON $urlPre "/users/zero734kr/gists" }}
+  {{ range first 10 $gistJ }}
+    {{ if .public }}
+      <li><a href="{{ .html_url }}" target="_blank">{{ .description }}</a></li>
+    {{ end }}
+  {{ end }}
+</ul>
+
